@@ -1,0 +1,169 @@
+ORMBundle\Entity\Sites:
+    type: entity
+    table: sites
+    indexes:
+        id_registrar:
+            columns:
+                - id_registrar
+        id_ftps:
+            columns:
+                - id_ftps
+        id_analytics:
+            columns:
+                - id_analytics
+        id_sqls:
+            columns:
+                - id_sqls
+        id_type_projet:
+            columns:
+                - id_type_projet
+        id_back_office:
+            columns:
+                - id_back_office
+        id_page_speed:
+            columns:
+                - id_page_speed
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        idFtps:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_ftps
+        idRegistrar:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_registrar
+        idSqls:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_sqls
+        idIps:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_ips
+        idHosts:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_hosts
+        idTypeProjet:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_type_projet
+        idAnalytics:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_analytics
+        idBackOffice:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_back_office
+        idPageSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_page_speed
+        idUrl:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_url
+        Priority:
+            type: integer
+            nullable: true
+            length: 6
+            options:
+                default : 1
+                unsigned: false
+            column: priority
+    oneToOne:
+        urls:
+            targetEntity: Urls
+            joinColumn:
+                name: id_url
+                referencedColumnName: id
+    manyToOne:
+        ftps:
+            targetEntity: Ftps
+            joinColumn:
+                name: id_ftps
+                referencedColumnName: id
+        analytics:
+            targetEntity: Analytics
+            joinColumn:
+                name: id_analytics
+                referencedColumnName: id
+        registrar:
+            targetEntity: Registrar
+            joinColumn:
+                name: id_registrar
+                referencedColumnName: id
+        sqls:
+            targetEntity: Sqls
+            joinColumn:
+                name: id_sqls
+                referencedColumnName: id
+        ips:
+            targetEntity: Ips
+            joinColumn:
+                name: id_ips
+                referencedColumnName: id
+        hosts:
+            targetEntity: Hosts
+            joinColumn:
+                name: id_hosts
+                referencedColumnName: id
+        type_projet:
+            targetEntity: TypeProjet
+            joinColumn:
+                name: id_type_projet
+                referencedColumnName: id
+        page_speed:
+            targetEntity: PageSpeed
+            joinColumn:
+                name: id_page_speed
+                referencedColumnName: id
+        back_office:
+            targetEntity: BackOffice
+            joinColumn:
+                name: id_back_office
+                referencedColumnName: id
+    oneToMany:
+        link_category:
+            targetEntity: LinkCategory
+            mappedBy : id_site
+        link_git:
+            targetEntity: LinkGit
+            mappedBy :  id_git
+    lifecycleCallbacks: {  }

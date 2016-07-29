@@ -1,0 +1,37 @@
+ORMBundle\Entity\LinkCategory:
+    type: entity
+    table: link_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        id_category:
+            type: integer
+            nullable: true
+            options:
+               unsigned: false
+            column: id_category
+        id_site:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_site
+    manyToOne:
+        sites:
+            targetEntity: Sites
+            joinColumn:
+                name: id_site
+                referencedColumnName: id
+        category:
+            targetEntity: Category
+            joinColumn:
+                name: id_category
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

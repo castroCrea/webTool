@@ -1,0 +1,35 @@
+ORMBundle\Entity\BackOffice:
+    type: entity
+    table: back_office
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        urlAdmin:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: url_admin
+        userAdmin:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: user_admin
+        passAdmin:
+            type: string
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+            column: pass_admin
+    lifecycleCallbacks: {  }

@@ -1,0 +1,32 @@
+ORMBundle\Entity\Urls:
+    type: entity
+    table: urls
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        expired:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    manyToOne:
+        sites:
+            targetEntity: Sites
+            joinColumn:
+                name: id
+                referencedColumnName: id_url
+    lifecycleCallbacks: {  }

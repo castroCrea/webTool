@@ -1,0 +1,7 @@
+orm_sites:
+    resource: "@ORMBundle/Resources/config/routing/sites.php"
+    prefix:   /sites
+
+orm_homepage:
+    path:     /
+    defaults: { _controller: ORMBundle:Default:index }

@@ -1,0 +1,38 @@
+ORMBundle\Entity\LinkGit:
+    type: entity
+    table: link_git
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        id_git:
+            type: integer
+            nullable: true
+            options:
+               unsigned: false
+            column: id_git
+        id_site:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_site
+    manyToOne:
+        sites:
+            targetEntity: Sites
+            joinColumn:
+                name: id_site
+                referencedColumnName: id
+        git:
+            targetEntity: Git
+            joinColumn:
+                name: id_git
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

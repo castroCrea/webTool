@@ -1,0 +1,21 @@
+ORMBundle\Entity\Hosts:
+    type: entity
+    table: hosts
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomHost:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: nom_host
+    lifecycleCallbacks: {  }

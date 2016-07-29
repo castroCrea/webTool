@@ -1,0 +1,42 @@
+ORMBundle\Entity\Analytics:
+    type: entity
+    table: analytics
+    indexes:
+        id_site:
+            columns:
+                - id_site
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idSite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_site
+        url:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        user:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

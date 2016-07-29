@@ -1,0 +1,29 @@
+ORMBundle\Entity\LoginAttempts:
+    type: entity
+    table: login_attempts
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ipAddress:
+            type: binary
+            nullable: false
+            column: ip_address
+        login:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        time:
+            type: integer
+            nullable: true
+            options:
+                unsigned: true
+    lifecycleCallbacks: {  }

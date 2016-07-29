@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Idftps</th>
+                <th>Idregistrar</th>
+                <th>Idsqls</th>
+                <th>Idips</th>
+                <th>Idhosts</th>
+                <th>Idtypeprojet</th>
+                <th>Idanalytics</th>
+                <th>Idbackoffice</th>
+                <th>Idpagespeed</th>
+                <th>Idurl</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site in sites %}
+            <tr>
+                <td><a href="{{ path('sites_show', { 'id': site.id }) }}">{{ site.id }}</a></td>
+                <td>{{ site.nom }}</td>
+                <td>{{ site.idFtps }}</td>
+                <td>{{ site.idRegistrar }}</td>
+                <td>{{ site.idSqls }}</td>
+                <td>{{ site.idIps }}</td>
+                <td>{{ site.idHosts }}</td>
+                <td>{{ site.idTypeProjet }}</td>
+                <td>{{ site.idAnalytics }}</td>
+                <td>{{ site.idBackOffice }}</td>
+                <td>{{ site.idPageSpeed }}</td>
+                <td>{{ site.idUrl }}</td>
+                <td>{{ site.Priority }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sites_show', { 'id': site.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sites_edit', { 'id': site.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sites_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

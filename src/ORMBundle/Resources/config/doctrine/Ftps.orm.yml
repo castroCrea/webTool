@@ -1,0 +1,48 @@
+ORMBundle\Entity\Ftps:
+    type: entity
+    table: ftps
+    indexes:
+        id_ips_fk:
+            columns:
+                - id_hosts
+        id_hosts:
+            columns:
+                - id_hosts
+        id_ips:
+            columns:
+                - id_ips
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idHosts:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_hosts
+        idIps:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_ips
+        user:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

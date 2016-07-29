@@ -1,0 +1,44 @@
+ORMBundle\Entity\Sqls:
+    type: entity
+    table: sqls
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        host:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        base:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        username:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
