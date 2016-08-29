@@ -1,0 +1,71 @@
+ORMBundle\Entity\LinkBill:
+    type: entity
+    table: link_bill
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        id_bill:
+            type: integer
+            nullable: true
+            options:
+               unsigned: false
+            column: id_bill
+        id_site:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_site
+        id_host:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_host
+        id_git:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_git
+        id_other:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_other
+    manyToOne:
+        bill:
+            targetEntity: Bill
+            joinColumn:
+                name: id_bill
+                referencedColumnName: id
+        sites:
+            targetEntity: Sites
+            joinColumn:
+                name: id_site
+                referencedColumnName: id
+        hosts:
+            targetEntity: Hosts
+            joinColumn:
+                name: id_host
+                referencedColumnName: id
+        git:
+            targetEntity: Git
+            joinColumn:
+                name: id_git
+                referencedColumnName: id
+        other:
+            targetEntity: Other
+            joinColumn:
+                name: id_other
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

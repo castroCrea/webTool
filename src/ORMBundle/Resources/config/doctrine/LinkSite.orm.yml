@@ -1,0 +1,47 @@
+ORMBundle\Entity\LinkSite:
+    type: entity
+    table: link_site
+
+    indexes:
+        id_site2:
+            columns:
+                - id_site2
+        id_site1:
+            columns:
+                - id_site1
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        id_site1:
+            type: integer
+            nullable: true
+            options:
+               unsigned: false
+            column: id_site1
+        id_site2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_site2
+    oneToOne:
+        sites1:
+            targetEntity: Sites
+            joinColumn:
+                name: id_site2
+                referencedColumnName: id
+        sites2:
+            targetEntity: Sites
+            joinColumn:
+                name: id_site1
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

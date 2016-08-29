@@ -1,16 +1,10 @@
-ORMBundle\Entity\Sites:
+ORMBundle\Entity\App:
     type: entity
-    table: sites
+    table: app
     indexes:
-        id_registrar:
+        id_store:
             columns:
-                - id_registrar
-        id_ftps:
-            columns:
-                - id_ftps
-        id_analytics:
-            columns:
-                - id_analytics
+                - id_store
         id_sqls:
             columns:
                 - id_sqls
@@ -20,9 +14,6 @@ ORMBundle\Entity\Sites:
         id_back_office:
             columns:
                 - id_back_office
-        id_page_speed:
-            columns:
-                - id_page_speed
     id:
         id:
             type: integer
@@ -39,18 +30,12 @@ ORMBundle\Entity\Sites:
             length: 50
             options:
                 fixed: false
-        idFtps:
+        idstore:
             type: integer
             nullable: false
             options:
                 unsigned: false
-            column: id_ftps
-        idRegistrar:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            column: id_registrar
+            column: id_store
         idSqls:
             type: integer
             nullable: true
@@ -75,12 +60,6 @@ ORMBundle\Entity\Sites:
             options:
                 unsigned: false
             column: id_type_projet
-        idAnalytics:
-            type: integer
-            nullable: true
-            options:
-                unsigned: false
-            column: id_analytics
         idBackOffice:
             type: integer
             nullable: true
@@ -122,20 +101,10 @@ ORMBundle\Entity\Sites:
                 name: id_url
                 referencedColumnName: id
     manyToOne:
-        ftps:
-            targetEntity: Ftps
+        store:
+            targetEntity: Store
             joinColumn:
-                name: id_ftps
-                referencedColumnName: id
-        analytics:
-            targetEntity: Analytics
-            joinColumn:
-                name: id_analytics
-                referencedColumnName: id
-        registrar:
-            targetEntity: Registrar
-            joinColumn:
-                name: id_registrar
+                name: id_store
                 referencedColumnName: id
         sqls:
             targetEntity: Sqls

@@ -51,4 +51,50 @@ class TypeProjet
     {
         return $this->value;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $id_type_projet;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->id_type_projet = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add idTypeProjet
+     *
+     * @param \ORMBundle\Entity\TypeProjet $idTypeProjet
+     *
+     * @return TypeProjet
+     */
+    public function addIdTypeProjet(\ORMBundle\Entity\TypeProjet $idTypeProjet)
+    {
+        $this->id_type_projet[] = $idTypeProjet;
+
+        return $this;
+    }
+
+    /**
+     * Remove idTypeProjet
+     *
+     * @param \ORMBundle\Entity\TypeProjet $idTypeProjet
+     */
+    public function removeIdTypeProjet(\ORMBundle\Entity\TypeProjet $idTypeProjet)
+    {
+        $this->id_type_projet->removeElement($idTypeProjet);
+    }
+
+    /**
+     * Get idTypeProjet
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdTypeProjet()
+    {
+        return $this->id_type_projet;
+    }
 }

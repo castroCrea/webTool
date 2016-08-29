@@ -17,4 +17,10 @@ ORMBundle\Entity\TypeProjet:
             length: 200
             options:
                 fixed: false
+
+    oneToMany:
+        id_type_projet:
+            targetEntity: Sites
+            mappedBy : id_type_projet
+
     lifecycleCallbacks: {  }

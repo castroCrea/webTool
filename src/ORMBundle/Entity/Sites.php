@@ -746,4 +746,275 @@ class Sites
     {
         return $this->back_office;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $link_bill;
+
+
+    /**
+     * Add linkBill
+     *
+     * @param \ORMBundle\Entity\LinkBill $linkBill
+     *
+     * @return Sites
+     */
+    public function addLinkBill(\ORMBundle\Entity\LinkBill $linkBill)
+    {
+        $this->link_bill[] = $linkBill;
+
+        return $this;
+    }
+
+    /**
+     * Remove linkBill
+     *
+     * @param \ORMBundle\Entity\LinkBill $linkBill
+     */
+    public function removeLinkBill(\ORMBundle\Entity\LinkBill $linkBill)
+    {
+        $this->link_bill->removeElement($linkBill);
+    }
+
+    /**
+     * Get linkBill
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLinkBill()
+    {
+        return $this->link_bill;
+    }
+    /**
+     * @var integer
+     */
+    private $Expired = 1;
+
+
+    /**
+     * Set expired
+     *
+     * @param integer $expired
+     *
+     * @return Sites
+     */
+    public function setExpired($expired)
+    {
+        $this->Expired = $expired;
+
+        return $this;
+    }
+
+    /**
+     * Get expired
+     *
+     * @return integer
+     */
+    public function getExpired()
+    {
+        return $this->Expired;
+    }
+    /**
+     * @var \ORMBundle\Entity\LinkSite
+     */
+    private $site1;
+
+
+    /**
+     * Set site1
+     *
+     * @param \ORMBundle\Entity\LinkSite $site1
+     *
+     * @return Sites
+     */
+    public function setSite1(\ORMBundle\Entity\LinkSite $site1 = null)
+    {
+        $this->site1 = $site1;
+
+        return $this;
+    }
+
+    /**
+     * Get site1
+     *
+     * @return \ORMBundle\Entity\LinkSite
+     */
+    public function getSite1()
+    {
+        return $this->site1;
+    }
+    /**
+     * @var \ORMBundle\Entity\LinkSite
+     */
+    private $site2;
+
+
+    /**
+     * Set site2
+     *
+     * @param \ORMBundle\Entity\LinkSite $site2
+     *
+     * @return Sites
+     */
+    public function setSite2(\ORMBundle\Entity\LinkSite $site2 = null)
+    {
+        $this->site2 = $site2;
+
+        return $this;
+    }
+
+    /**
+     * Get site2
+     *
+     * @return \ORMBundle\Entity\LinkSite
+     */
+    public function getSite2()
+    {
+        return $this->site2;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $link_site1;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $link_site2;
+
+
+    /**
+     * Add linkSite1
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite1
+     *
+     * @return Sites
+     */
+    public function addLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1)
+    {
+        $this->link_site1[] = $linkSite1;
+
+        return $this;
+    }
+
+    /**
+     * Remove linkSite1
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite1
+     */
+    public function removeLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1)
+    {
+        $this->link_site1->removeElement($linkSite1);
+    }
+
+    /**
+     * Get linkSite1
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLinkSite1()
+    {
+        return $this->link_site1;
+    }
+
+    /**
+     * Add linkSite2
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite2
+     *
+     * @return Sites
+     */
+    public function addLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2)
+    {
+        $this->link_site2[] = $linkSite2;
+
+        return $this;
+    }
+
+    /**
+     * Remove linkSite2
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite2
+     */
+    public function removeLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2)
+    {
+        $this->link_site2->removeElement($linkSite2);
+    }
+
+    /**
+     * Get linkSite2
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLinkSite2()
+    {
+        return $this->link_site2;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $link_site;
+
+
+    /**
+     * Add linkSite
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite
+     *
+     * @return Sites
+     */
+    public function addLinkSite(\ORMBundle\Entity\LinkSite $linkSite)
+    {
+        $this->link_site[] = $linkSite;
+
+        return $this;
+    }
+
+    /**
+     * Remove linkSite
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite
+     */
+    public function removeLinkSite(\ORMBundle\Entity\LinkSite $linkSite)
+    {
+        $this->link_site->removeElement($linkSite);
+    }
+
+    /**
+     * Get linkSite
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLinkSite()
+    {
+        return $this->link_site;
+    }
+
+    /**
+     * Set linkSite1
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite1
+     *
+     * @return Sites
+     */
+    public function setLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1 = null)
+    {
+        $this->link_site1 = $linkSite1;
+
+        return $this;
+    }
+
+    /**
+     * Set linkSite2
+     *
+     * @param \ORMBundle\Entity\LinkSite $linkSite2
+     *
+     * @return Sites
+     */
+    public function setLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2 = null)
+    {
+        $this->link_site2 = $linkSite2;
+
+        return $this;
+    }
 }

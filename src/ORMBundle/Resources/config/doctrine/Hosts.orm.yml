@@ -18,4 +18,8 @@ ORMBundle\Entity\Hosts:
             options:
                 fixed: false
             column: nom_host
+
+    link_bill:
+        targetEntity: LinkBill
+        mappedBy :  id_bill
     lifecycleCallbacks: {  }
