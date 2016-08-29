@@ -3,9 +3,9 @@
 namespace ORMBundle\Entity;
 
 /**
- * Sites
+ * App
  */
-class Sites
+class App
 {
     /**
      * @var integer
@@ -20,7 +20,7 @@ class Sites
     /**
      * @var integer
      */
-    private $idFtps;
+    private $idstore;
 
     /**
      * @var integer
@@ -50,11 +50,6 @@ class Sites
     /**
      * @var integer
      */
-    private $idAnalytics;
-
-    /**
-     * @var integer
-     */
     private $idBackOffice;
 
     /**
@@ -73,6 +68,11 @@ class Sites
     private $Priority = 1;
 
     /**
+     * @var integer
+     */
+    private $Expired = 1;
+
+    /**
      * @var \ORMBundle\Entity\Urls
      */
     private $urls;
@@ -88,14 +88,14 @@ class Sites
     private $link_git;
 
     /**
-     * @var \ORMBundle\Entity\Ftps
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $ftps;
+    private $link_bill;
 
     /**
-     * @var \ORMBundle\Entity\Analytics
+     * @var \ORMBundle\Entity\Store
      */
-    private $analytics;
+    private $store;
 
     /**
      * @var \ORMBundle\Entity\Registrar
@@ -133,12 +133,23 @@ class Sites
     private $back_office;
 
     /**
+     * @var \ORMBundle\Entity\LinkSite
+     */
+    private $link_site1;
+
+    /**
+     * @var \ORMBundle\Entity\LinkSite
+     */
+    private $link_site2;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->link_category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->link_git = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->link_bill = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -156,7 +167,7 @@ class Sites
      *
      * @param string $nom
      *
-     * @return Sites
+     * @return App
      */
     public function setNom($nom)
     {
@@ -176,27 +187,27 @@ class Sites
     }
 
     /**
-     * Set idFtps
+     * Set idstore
      *
-     * @param integer $idFtps
+     * @param integer $idstore
      *
-     * @return Sites
+     * @return App
      */
-    public function setIdFtps($idFtps)
+    public function setIdstore($idstore)
     {
-        $this->idFtps = $idFtps;
+        $this->idstore = $idstore;
 
         return $this;
     }
 
     /**
-     * Get idFtps
+     * Get idstore
      *
      * @return integer
      */
-    public function getIdFtps()
+    public function getIdstore()
     {
-        return $this->idFtps;
+        return $this->idstore;
     }
 
     /**
@@ -204,7 +215,7 @@ class Sites
      *
      * @param integer $idRegistrar
      *
-     * @return Sites
+     * @return App
      */
     public function setIdRegistrar($idRegistrar)
     {
@@ -228,7 +239,7 @@ class Sites
      *
      * @param integer $idSqls
      *
-     * @return Sites
+     * @return App
      */
     public function setIdSqls($idSqls)
     {
@@ -252,7 +263,7 @@ class Sites
      *
      * @param integer $idIps
      *
-     * @return Sites
+     * @return App
      */
     public function setIdIps($idIps)
     {
@@ -276,7 +287,7 @@ class Sites
      *
      * @param integer $idHosts
      *
-     * @return Sites
+     * @return App
      */
     public function setIdHosts($idHosts)
     {
@@ -300,7 +311,7 @@ class Sites
      *
      * @param integer $idTypeProjet
      *
-     * @return Sites
+     * @return App
      */
     public function setIdTypeProjet($idTypeProjet)
     {
@@ -320,35 +331,11 @@ class Sites
     }
 
     /**
-     * Set idAnalytics
-     *
-     * @param integer $idAnalytics
-     *
-     * @return Sites
-     */
-    public function setIdAnalytics($idAnalytics)
-    {
-        $this->idAnalytics = $idAnalytics;
-
-        return $this;
-    }
-
-    /**
-     * Get idAnalytics
-     *
-     * @return integer
-     */
-    public function getIdAnalytics()
-    {
-        return $this->idAnalytics;
-    }
-
-    /**
      * Set idBackOffice
      *
      * @param integer $idBackOffice
      *
-     * @return Sites
+     * @return App
      */
     public function setIdBackOffice($idBackOffice)
     {
@@ -372,7 +359,7 @@ class Sites
      *
      * @param integer $idPageSpeed
      *
-     * @return Sites
+     * @return App
      */
     public function setIdPageSpeed($idPageSpeed)
     {
@@ -396,7 +383,7 @@ class Sites
      *
      * @param integer $idUrl
      *
-     * @return Sites
+     * @return App
      */
     public function setIdUrl($idUrl)
     {
@@ -420,7 +407,7 @@ class Sites
      *
      * @param integer $priority
      *
-     * @return Sites
+     * @return App
      */
     public function setPriority($priority)
     {
@@ -440,11 +427,35 @@ class Sites
     }
 
     /**
+     * Set expired
+     *
+     * @param integer $expired
+     *
+     * @return App
+     */
+    public function setExpired($expired)
+    {
+        $this->Expired = $expired;
+
+        return $this;
+    }
+
+    /**
+     * Get expired
+     *
+     * @return integer
+     */
+    public function getExpired()
+    {
+        return $this->Expired;
+    }
+
+    /**
      * Set urls
      *
      * @param \ORMBundle\Entity\Urls $urls
      *
-     * @return Sites
+     * @return App
      */
     public function setUrls(\ORMBundle\Entity\Urls $urls = null)
     {
@@ -468,7 +479,7 @@ class Sites
      *
      * @param \ORMBundle\Entity\LinkCategory $linkCategory
      *
-     * @return Sites
+     * @return App
      */
     public function addLinkCategory(\ORMBundle\Entity\LinkCategory $linkCategory)
     {
@@ -502,7 +513,7 @@ class Sites
      *
      * @param \ORMBundle\Entity\LinkGit $linkGit
      *
-     * @return Sites
+     * @return App
      */
     public function addLinkGit(\ORMBundle\Entity\LinkGit $linkGit)
     {
@@ -532,232 +543,11 @@ class Sites
     }
 
     /**
-     * Set ftps
-     *
-     * @param \ORMBundle\Entity\Ftps $ftps
-     *
-     * @return Sites
-     */
-    public function setFtps(\ORMBundle\Entity\Ftps $ftps = null)
-    {
-        $this->ftps = $ftps;
-
-        return $this;
-    }
-
-    /**
-     * Get ftps
-     *
-     * @return \ORMBundle\Entity\Ftps
-     */
-    public function getFtps()
-    {
-        return $this->ftps;
-    }
-
-    /**
-     * Set analytics
-     *
-     * @param \ORMBundle\Entity\Analytics $analytics
-     *
-     * @return Sites
-     */
-    public function setAnalytics(\ORMBundle\Entity\Analytics $analytics = null)
-    {
-        $this->analytics = $analytics;
-
-        return $this;
-    }
-
-    /**
-     * Get analytics
-     *
-     * @return \ORMBundle\Entity\Analytics
-     */
-    public function getAnalytics()
-    {
-        return $this->analytics;
-    }
-
-    /**
-     * Set registrar
-     *
-     * @param \ORMBundle\Entity\Registrar $registrar
-     *
-     * @return Sites
-     */
-    public function setRegistrar(\ORMBundle\Entity\Registrar $registrar = null)
-    {
-        $this->registrar = $registrar;
-
-        return $this;
-    }
-
-    /**
-     * Get registrar
-     *
-     * @return \ORMBundle\Entity\Registrar
-     */
-    public function getRegistrar()
-    {
-        return $this->registrar;
-    }
-
-    /**
-     * Set sqls
-     *
-     * @param \ORMBundle\Entity\Sqls $sqls
-     *
-     * @return Sites
-     */
-    public function setSqls(\ORMBundle\Entity\Sqls $sqls = null)
-    {
-        $this->sqls = $sqls;
-
-        return $this;
-    }
-
-    /**
-     * Get sqls
-     *
-     * @return \ORMBundle\Entity\Sqls
-     */
-    public function getSqls()
-    {
-        return $this->sqls;
-    }
-
-    /**
-     * Set ips
-     *
-     * @param \ORMBundle\Entity\Ips $ips
-     *
-     * @return Sites
-     */
-    public function setIps(\ORMBundle\Entity\Ips $ips = null)
-    {
-        $this->ips = $ips;
-
-        return $this;
-    }
-
-    /**
-     * Get ips
-     *
-     * @return \ORMBundle\Entity\Ips
-     */
-    public function getIps()
-    {
-        return $this->ips;
-    }
-
-    /**
-     * Set hosts
-     *
-     * @param \ORMBundle\Entity\Hosts $hosts
-     *
-     * @return Sites
-     */
-    public function setHosts(\ORMBundle\Entity\Hosts $hosts = null)
-    {
-        $this->hosts = $hosts;
-
-        return $this;
-    }
-
-    /**
-     * Get hosts
-     *
-     * @return \ORMBundle\Entity\Hosts
-     */
-    public function getHosts()
-    {
-        return $this->hosts;
-    }
-
-    /**
-     * Set typeProjet
-     *
-     * @param \ORMBundle\Entity\TypeProjet $typeProjet
-     *
-     * @return Sites
-     */
-    public function setTypeProjet(\ORMBundle\Entity\TypeProjet $typeProjet = null)
-    {
-        $this->type_projet = $typeProjet;
-
-        return $this;
-    }
-
-    /**
-     * Get typeProjet
-     *
-     * @return \ORMBundle\Entity\TypeProjet
-     */
-    public function getTypeProjet()
-    {
-        return $this->type_projet;
-    }
-
-    /**
-     * Set pageSpeed
-     *
-     * @param \ORMBundle\Entity\PageSpeed $pageSpeed
-     *
-     * @return Sites
-     */
-    public function setPageSpeed(\ORMBundle\Entity\PageSpeed $pageSpeed = null)
-    {
-        $this->page_speed = $pageSpeed;
-
-        return $this;
-    }
-
-    /**
-     * Get pageSpeed
-     *
-     * @return \ORMBundle\Entity\PageSpeed
-     */
-    public function getPageSpeed()
-    {
-        return $this->page_speed;
-    }
-
-    /**
-     * Set backOffice
-     *
-     * @param \ORMBundle\Entity\BackOffice $backOffice
-     *
-     * @return Sites
-     */
-    public function setBackOffice(\ORMBundle\Entity\BackOffice $backOffice = null)
-    {
-        $this->back_office = $backOffice;
-
-        return $this;
-    }
-
-    /**
-     * Get backOffice
-     *
-     * @return \ORMBundle\Entity\BackOffice
-     */
-    public function getBackOffice()
-    {
-        return $this->back_office;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $link_bill;
-
-
-    /**
      * Add linkBill
      *
      * @param \ORMBundle\Entity\LinkBill $linkBill
      *
-     * @return Sites
+     * @return App
      */
     public function addLinkBill(\ORMBundle\Entity\LinkBill $linkBill)
     {
@@ -785,209 +575,197 @@ class Sites
     {
         return $this->link_bill;
     }
-    /**
-     * @var integer
-     */
-    private $Expired = 1;
-
 
     /**
-     * Set expired
+     * Set store
      *
-     * @param integer $expired
+     * @param \ORMBundle\Entity\Store $store
      *
-     * @return Sites
+     * @return App
      */
-    public function setExpired($expired)
+    public function setStore(\ORMBundle\Entity\Store $store = null)
     {
-        $this->Expired = $expired;
+        $this->store = $store;
 
         return $this;
     }
 
     /**
-     * Get expired
+     * Get store
      *
-     * @return integer
+     * @return \ORMBundle\Entity\Store
      */
-    public function getExpired()
+    public function getStore()
     {
-        return $this->Expired;
+        return $this->store;
     }
-    /**
-     * @var \ORMBundle\Entity\LinkSite
-     */
-    private $site1;
-
 
     /**
-     * Set site1
+     * Set registrar
      *
-     * @param \ORMBundle\Entity\LinkSite $site1
+     * @param \ORMBundle\Entity\Registrar $registrar
      *
-     * @return Sites
+     * @return App
      */
-    public function setSite1(\ORMBundle\Entity\LinkSite $site1 = null)
+    public function setRegistrar(\ORMBundle\Entity\Registrar $registrar = null)
     {
-        $this->site1 = $site1;
+        $this->registrar = $registrar;
 
         return $this;
     }
 
     /**
-     * Get site1
+     * Get registrar
      *
-     * @return \ORMBundle\Entity\LinkSite
+     * @return \ORMBundle\Entity\Registrar
      */
-    public function getSite1()
+    public function getRegistrar()
     {
-        return $this->site1;
+        return $this->registrar;
     }
-    /**
-     * @var \ORMBundle\Entity\LinkSite
-     */
-    private $site2;
-
 
     /**
-     * Set site2
+     * Set sqls
      *
-     * @param \ORMBundle\Entity\LinkSite $site2
+     * @param \ORMBundle\Entity\Sqls $sqls
      *
-     * @return Sites
+     * @return App
      */
-    public function setSite2(\ORMBundle\Entity\LinkSite $site2 = null)
+    public function setSqls(\ORMBundle\Entity\Sqls $sqls = null)
     {
-        $this->site2 = $site2;
+        $this->sqls = $sqls;
 
         return $this;
     }
 
     /**
-     * Get site2
+     * Get sqls
      *
-     * @return \ORMBundle\Entity\LinkSite
+     * @return \ORMBundle\Entity\Sqls
      */
-    public function getSite2()
+    public function getSqls()
     {
-        return $this->site2;
+        return $this->sqls;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $link_site1;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $link_site2;
-
-
-    /**
-     * Add linkSite1
+     * Set ips
      *
-     * @param \ORMBundle\Entity\LinkSite $linkSite1
+     * @param \ORMBundle\Entity\Ips $ips
      *
-     * @return Sites
+     * @return App
      */
-    public function addLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1)
+    public function setIps(\ORMBundle\Entity\Ips $ips = null)
     {
-        $this->link_site1[] = $linkSite1;
+        $this->ips = $ips;
 
         return $this;
     }
 
     /**
-     * Remove linkSite1
+     * Get ips
      *
-     * @param \ORMBundle\Entity\LinkSite $linkSite1
+     * @return \ORMBundle\Entity\Ips
      */
-    public function removeLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1)
+    public function getIps()
     {
-        $this->link_site1->removeElement($linkSite1);
+        return $this->ips;
     }
 
     /**
-     * Get linkSite1
+     * Set hosts
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param \ORMBundle\Entity\Hosts $hosts
+     *
+     * @return App
      */
-    public function getLinkSite1()
+    public function setHosts(\ORMBundle\Entity\Hosts $hosts = null)
     {
-        return $this->link_site1;
-    }
-
-    /**
-     * Add linkSite2
-     *
-     * @param \ORMBundle\Entity\LinkSite $linkSite2
-     *
-     * @return Sites
-     */
-    public function addLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2)
-    {
-        $this->link_site2[] = $linkSite2;
+        $this->hosts = $hosts;
 
         return $this;
     }
 
     /**
-     * Remove linkSite2
+     * Get hosts
      *
-     * @param \ORMBundle\Entity\LinkSite $linkSite2
+     * @return \ORMBundle\Entity\Hosts
      */
-    public function removeLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2)
+    public function getHosts()
     {
-        $this->link_site2->removeElement($linkSite2);
+        return $this->hosts;
     }
 
     /**
-     * Get linkSite2
+     * Set typeProjet
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param \ORMBundle\Entity\TypeProjet $typeProjet
+     *
+     * @return App
      */
-    public function getLinkSite2()
+    public function setTypeProjet(\ORMBundle\Entity\TypeProjet $typeProjet = null)
     {
-        return $this->link_site2;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $link_site;
-
-
-    /**
-     * Add linkSite
-     *
-     * @param \ORMBundle\Entity\LinkSite $linkSite
-     *
-     * @return Sites
-     */
-    public function addLinkSite(\ORMBundle\Entity\LinkSite $linkSite)
-    {
-        $this->link_site[] = $linkSite;
+        $this->type_projet = $typeProjet;
 
         return $this;
     }
 
     /**
-     * Remove linkSite
+     * Get typeProjet
      *
-     * @param \ORMBundle\Entity\LinkSite $linkSite
+     * @return \ORMBundle\Entity\TypeProjet
      */
-    public function removeLinkSite(\ORMBundle\Entity\LinkSite $linkSite)
+    public function getTypeProjet()
     {
-        $this->link_site->removeElement($linkSite);
+        return $this->type_projet;
     }
 
     /**
-     * Get linkSite
+     * Set pageSpeed
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param \ORMBundle\Entity\PageSpeed $pageSpeed
+     *
+     * @return App
      */
-    public function getLinkSite()
+    public function setPageSpeed(\ORMBundle\Entity\PageSpeed $pageSpeed = null)
     {
-        return $this->link_site;
+        $this->page_speed = $pageSpeed;
+
+        return $this;
+    }
+
+    /**
+     * Get pageSpeed
+     *
+     * @return \ORMBundle\Entity\PageSpeed
+     */
+    public function getPageSpeed()
+    {
+        return $this->page_speed;
+    }
+
+    /**
+     * Set backOffice
+     *
+     * @param \ORMBundle\Entity\BackOffice $backOffice
+     *
+     * @return App
+     */
+    public function setBackOffice(\ORMBundle\Entity\BackOffice $backOffice = null)
+    {
+        $this->back_office = $backOffice;
+
+        return $this;
+    }
+
+    /**
+     * Get backOffice
+     *
+     * @return \ORMBundle\Entity\BackOffice
+     */
+    public function getBackOffice()
+    {
+        return $this->back_office;
     }
 
     /**
@@ -995,7 +773,7 @@ class Sites
      *
      * @param \ORMBundle\Entity\LinkSite $linkSite1
      *
-     * @return Sites
+     * @return App
      */
     public function setLinkSite1(\ORMBundle\Entity\LinkSite $linkSite1 = null)
     {
@@ -1005,16 +783,36 @@ class Sites
     }
 
     /**
+     * Get linkSite1
+     *
+     * @return \ORMBundle\Entity\LinkSite
+     */
+    public function getLinkSite1()
+    {
+        return $this->link_site1;
+    }
+
+    /**
      * Set linkSite2
      *
      * @param \ORMBundle\Entity\LinkSite $linkSite2
      *
-     * @return Sites
+     * @return App
      */
     public function setLinkSite2(\ORMBundle\Entity\LinkSite $linkSite2 = null)
     {
         $this->link_site2 = $linkSite2;
 
         return $this;
+    }
+
+    /**
+     * Get linkSite2
+     *
+     * @return \ORMBundle\Entity\LinkSite
+     */
+    public function getLinkSite2()
+    {
+        return $this->link_site2;
     }
 }

@@ -167,4 +167,50 @@ class Sqls
     {
         return $this->url;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $id_type_projet;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->id_type_projet = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add idTypeProjet
+     *
+     * @param \ORMBundle\Entity\Sites $idTypeProjet
+     *
+     * @return Sqls
+     */
+    public function addIdTypeProjet(\ORMBundle\Entity\Sites $idTypeProjet)
+    {
+        $this->id_type_projet[] = $idTypeProjet;
+
+        return $this;
+    }
+
+    /**
+     * Remove idTypeProjet
+     *
+     * @param \ORMBundle\Entity\Sites $idTypeProjet
+     */
+    public function removeIdTypeProjet(\ORMBundle\Entity\Sites $idTypeProjet)
+    {
+        $this->id_type_projet->removeElement($idTypeProjet);
+    }
+
+    /**
+     * Get idTypeProjet
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdTypeProjet()
+    {
+        return $this->id_type_projet;
+    }
 }

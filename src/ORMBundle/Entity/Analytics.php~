@@ -138,4 +138,33 @@ class Analytics
     {
         return $this->password;
     }
+    /**
+     * @var string
+     */
+    private $code;
+
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Analytics
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
 }
